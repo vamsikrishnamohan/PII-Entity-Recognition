@@ -1,4 +1,4 @@
-**First Improvement**
+*First Improvement*
 Added the validation loop
 
 Observed - performing badly on email and phone
@@ -13,7 +13,7 @@ Per-entity metrics:
 - Macro-F1: 0.742
 **PII-only metrics: P=0.706 R=0.617 F1=0.659**
 
-**Second Improvement**
+*Second Improvement*
 Fixed data generation issues:
 1. Removed overlapping PERSON_NAME entities from EMAIL (was causing confusion)
 2. Simplified PHONE patterns (70% spoken, 30% numeric for consistency)
@@ -34,7 +34,7 @@ Macro-F1: 0.913
 
 **PII-only metrics: P=0.858 R=0.844 F1=0.851**
 
-**Third Improvement**
+*Third Improvement*
 Scaled up dataset to 1000 train / 200 dev samples
 Observed uneven distribution:
 - PHONE: 411 samples
@@ -68,7 +68,7 @@ PII Precision: 0.770 (was 0.858)
 **Fix:** Rolled back to using SAME random seed (42) for all datasets
 **Rationale:** Consistency between train/dev > artificial diversity
 
-**Final Results (1000 train, 200 dev, same seed, NO class weights):**
+*Final Results (1000 train, 200 dev, same seed, NO class weights):*
 - CITY            P=1.000 R=1.000 F1=1.000
 - CREDIT_CARD     P=1.000 R=1.000 F1=1.000
 - DATE            P=0.894 R=0.894 F1=0.894
@@ -81,7 +81,7 @@ Macro-F1: 0.894
 **PII Precision: 0.845   EXCEEDS 0.80 TARGET**
 **p95 Latency: 15.73 ms   BELOW 20ms TARGET**
 
-**Summary**
+*Summary*
  - All assignment targets met!
  - PII Precision: 0.845 (target ≥0.80)
  - p95 Latency: 15.73 ms (target ≤20ms)
