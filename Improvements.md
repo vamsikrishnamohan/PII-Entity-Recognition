@@ -11,7 +11,7 @@ Per-entity metrics:
 - PERSON_NAME     P=0.787 R=0.800 F1=0.793
 - PHONE           P=0.471 R=0.400 F1=0.432
 - Macro-F1: 0.742
-*PII-only metrics: P=0.706 R=0.617 F1=0.659*
+- *PII-only metrics: P=0.706 R=0.617 F1=0.659*
 
 **Second Improvement**
 Fixed data generation issues:
@@ -30,9 +30,9 @@ Per-entity metrics:
 - PERSON_NAME     P=0.900 R=0.900 F1=0.900
 - PHONE           P=0.794 R=0.771 F1=0.783
 
-Macro-F1: 0.913
+- Macro-F1: 0.913
 
-*PII-only metrics: P=0.858 R=0.844 F1=0.851*
+- *PII-only metrics: P=0.858 R=0.844 F1=0.851*
 
 **Third Improvement**
 Scaled up dataset to 1000 train / 200 dev samples
@@ -60,12 +60,14 @@ Added class weights to handle imbalanced data:
 *Solution:*Made class weights OPTIONAL via --use_class_weights flag
 
 *Results WITHOUT class weights (still worse!):*
-EMAIL F1: 0.756 (was 0.885)
+- EMAIL F1: 0.756 (was 0.885)
 PHONE F1: 0.552 (was 0.783)  
 PII Precision: 0.770 (was 0.858) 
 
 *Root cause:* Different random seeds for train/dev made datasets too different
+
 *Fix:* Rolled back to using SAME random seed (42) for all datasets
+
 *Rationale:* Consistency between train/dev > artificial diversity
 
 **Final Results (1000 train, 200 dev, same seed, NO class weights):**
@@ -77,9 +79,11 @@ PII Precision: 0.770 (was 0.858)
 - PERSON_NAME     P=0.776 R=0.776 F1=0.776
 - PHONE           P=0.774 R=0.686 F1=0.727
 
-Macro-F1: 0.894
-*PII Precision: 0.845   EXCEEDS 0.80 TARGET*
-*p95 Latency: 15.73 ms   BELOW 20ms TARGET*
+- *Macro-F1: 0.894*
+
+- *PII Precision: 0.845 - EXCEEDS 0.80 TARGET*
+
+- *p95 Latency: 15.73 ms   BELOW 20ms TARGET*
 
 *Summary*
  - All assignment targets met!
