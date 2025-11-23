@@ -51,9 +51,9 @@ Added class weights to handle imbalanced data:
 **Results WITH class weights (WORSE!):**
  CITY            P=1.000 R=1.000 F1=1.000
 CREDIT_CARD     P=1.000 R=1.000 F1=1.000
-DATE            P=0.682 R=0.789 F1=0.732 ⬇️
-EMAIL           P=0.768 R=0.791 F1=0.779 ⬇️ (was 0.885)
-PHONE           P=0.480 R=0.522 F1=0.500 😱 (was 0.783)
+DATE            P=0.682 R=0.789 F1=0.732 
+EMAIL           P=0.768 R=0.791 F1=0.779 (was 0.885)
+PHONE           P=0.480 R=0.522 F1=0.500 (was 0.783)
 PII Precision: 0.693 (was 0.858)
 
 **Issue:** Class weights too aggressive - hurt common classes (PHONE dropped badly)
