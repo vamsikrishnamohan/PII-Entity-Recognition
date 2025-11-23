@@ -1,0 +1,80 @@
+================================================================================
+                    PII NER ASSIGNMENT - FINAL RESULTS
+================================================================================
+
+ASSIGNMENT TARGETS                    ACHIEVED                    STATUS
+--------------------------------------------------------------------------------
+PII Precision ≥ 0.80              →   0.845                       ✓ PASS
+p95 Latency ≤ 20ms                →   15.73 ms                    ✓ PASS
+Model-based approach              →   DistilBERT                  ✓ PASS
+--------------------------------------------------------------------------------
+
+================================================================================
+                         PER-ENTITY PERFORMANCE
+================================================================================
+
+Entity Type          Precision    Recall      F1 Score    Samples
+--------------------------------------------------------------------------------
+CITY                  1.000       1.000       1.000       Perfect
+CREDIT_CARD           1.000       1.000       1.000       Perfect
+DATE                  0.894       0.894       0.894       Excellent
+EMAIL                 0.870       0.857       0.863       Good
+LOCATION              1.000       1.000       1.000       Perfect
+PERSON_NAME           0.776       0.776       0.776       Good
+PHONE                 0.774       0.686       0.727       Good
+--------------------------------------------------------------------------------
+Macro-F1: 0.894                                           Excellent
+--------------------------------------------------------------------------------
+
+================================================================================
+                         TECHNICAL SPECIFICATIONS
+================================================================================
+
+Model Architecture:    DistilBERT-base-uncased (66M parameters)
+Training Data:         1000 samples (synthetic STT-style transcripts)
+Dev Data:             200 samples
+Test Data:            50 samples
+
+Hyperparameters:
+  - Learning Rate:     5e-5
+  - Batch Size:        8
+  - Epochs:            5 (with early stopping)
+  - Max Length:        256 tokens
+  - Optimizer:         AdamW
+  - Gradient Clipping: 1.0
+
+================================================================================
+                         LATENCY PERFORMANCE
+================================================================================
+
+Batch Size:           1 (single utterance)
+Device:               CPU
+Measurements:         50 runs
+
+Results:
+  - p50 latency:      14.11 ms (median)
+  - p95 latency:      15.73 ms (95th percentile)
+  - Target:           ≤20 ms
+  - Margin:           21% under target
+
+================================================================================
+                         KEY IMPROVEMENTS MADE
+================================================================================
+
+✓ Added validation loop with early stopping
+✓ Fixed overlapping entity issues in data generation
+✓ Simplified phone/email patterns for better recognition
+✓ Scaled dataset from 2 → 1000 training samples
+✓ Implemented best model saving (not just last epoch)
+✓ Added gradient clipping for training stability
+
+================================================================================
+                              REPOSITORY
+================================================================================
+
+GitHub: https://github.com/vamsikrishnamohan/PII-Entity-Recognition.git
+
+Complete code, data, and documentation available for reproduction.
+
+================================================================================
+
